@@ -37,7 +37,7 @@ public class Book {
 
     @Override
     public int hashCode() {
-        return Objects.hash(title, yearOfPublication);
+        return Objects.hash(title, author.hashCode(), yearOfPublication);
     }
 
     @Override
@@ -49,6 +49,7 @@ public class Book {
             return false;
         }
         Book book = (Book) o;
-        return Objects.equals(title, book.title) && Objects.equals(yearOfPublication, book.yearOfPublication);
+        return Objects.equals(title, book.title) && Objects.equals(yearOfPublication, book.yearOfPublication)
+                && author.equals(book.author);
     }
 }
